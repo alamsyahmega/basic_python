@@ -27,3 +27,28 @@ del main_function
 another_func()
 
 # its called python closures
+
+
+
+# ========================================== #
+# more example with argument
+
+# define make_multiplier function
+def make_multiplier_of(n):
+
+  def multiplier(x):
+    # return x times n
+    return x * n 
+
+  return multiplier
+
+# define multiplier_of_10 with n = 10
+multiplier_of_10 = make_multiplier_of(10)
+# define multiplier_of_5 with n = 5
+multiplier_of_5 = make_multiplier_of(5)
+
+
+# call multiplier_of_10 with x = 5, return 50
+print(multiplier_of_10(5))
+# call multiplier_of_5 with x = 5, return 25
+print(multiplier_of_5(5))
