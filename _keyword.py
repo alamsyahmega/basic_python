@@ -193,14 +193,14 @@ print("\n" * 3)
 
 penjelasan = """
 'async' dan 'await' adalah keyword yang disediakan oleh library python yaitu asyncio.
-Mereka digunakan untuk menulis kode secara bersamaan/mengeksekusi secara asingkronus
+Mereka digunakan untuk menulis kode secara bersamaan/mengeksekusi secara asyncronus
 """
 print(penjelasan)
 import asyncio
 
 async def main():
     print("Hello")
-    await asyncio.sleep(1) # menunggu 1 detik sebelum print("world") dijalankan
+    await asyncio.sleep(0.1) # menunggu 0.1 detik sebelum print("world") dijalankan
     print("World")
 
 loop = asyncio.get_event_loop()
@@ -212,20 +212,140 @@ print("\n" * 3)
 
 
 
-# =============== ==> None <== =============== #
-# =============== ==> End <== =============== #
+# =============== ==> break, continue <== =============== #
 
-# =============== ==> None <== =============== #
-# =============== ==> End <== =============== #
+penjelasan = """
+'break, continue' digunakan didalam perulangan baik for-loop maupun while-loop untuk
+mengubah prilaku normal dari mereka (perulangannya).
 
-# =============== ==> None <== =============== #
-# =============== ==> End <== =============== #
+'break' akan mengakhiri loop terkecil (apabila ada loop didalam loop) dan akan melanjutkan
+pernyataan dibawah loopnya, karena loopnya telah berakhir (akibat break).
+'continue' akan mengakhiri iterasi saat loop, tetapi tidak mengakhiri loopnya, dia akan mengakhiri
+hanya dikeadaan tertentu (yang telah ditentukan oleh pengguna/pemrogram)
+"""
 
-# =============== ==> None <== =============== #
-# =============== ==> End <== =============== #
+# Contoh
+for x in range(1,4): # loop 1
+    for z in range(0, 10): # loop 2
+        if z == 3: # Jika z == 3, maka loop 2 akan diakhiri
+            break # break untuk mengakhiri loop
+        print(z, end=" ")
+    if x == 2: # Jika x == 2 atau saat x = 2, print(", x adalah:", x) tidak akan dieksekusi dan loop berlanjut
+        continue # continue untuk mengakhiri loop saat x = 2, lalu loop dilanjukan ke x = 3
+    print(", x adalah:", x)
 
-# =============== ==> None <== =============== #
 # =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> class <== =============== #
+penjelasan = """
+'class' digunakan untuk mendefinisikan sebuah kelas yang telah ditentukan oleh programmer.
+
+'class' ini merupakan kumpulan atribut dan metode terkait yang mencoba merepresentasikan
+dunia nyata. Gagasan menempatkan data dan fungsi/metode bersama-sama dalam 'class' adalah 
+inti dari konsep pemrograman berorientasi objek atau OOP
+
+Kelas dapat didefinisikan dimana saja dalam suatu program, tetapi best-practice-nya adalah
+hanya mendefinisikan satu kelas untuk sebuah modul.
+
+Mendefinisikan 'class' biasanya menggunakan Capitalize atau huruf awal dari 'class' adalah
+huruf kapital
+"""
+# Contoh:
+class ExampleClass:
+    x = 10
+    
+    def __init__(self, name): 
+        self.name = name
+    
+    def method_call_name(self):
+        print("Hello my name is {}".format(self.name))
+    
+ex = ExampleClass("Bejon") # memanggil class ExampleClass ke dalam ex dengan parameter nama = "Bejon"
+print("x dalam ExampleClass adalah: ", ex.x) # print ex.x yaitu x = 10
+ex.method_call_name() # memanggil method
+# print
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> def <== =============== #
+penjelasan = """
+'def' adalah kata kunci untuk mendefinisikan sebuah fungsi. Fungsi ini merupakan
+suatu blok pemrograman yang dimaksudkan untuk melakukan suatu tugas tertentu dan biasanya
+tugas tersebut dilakukan secara berulang (jadi tidak perlu 2x menulis program yang sama)
+
+Untuk penjelasan mendalam akan dijelaskan pada bagian terpisah
+"""
+def selamat_pagi(name="Sony"):
+    print("Selamat pagi {}".format(name))
+
+selamat_pagi("Cecil") # memanggil fungsi dengan argument "Cecil"
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> del <== =============== #
+penjelasan = """
+'del' digunakan untuk menghapus referensi ke suatu objek. Semuanya objek dalam python.
+Kita bisa menghapus sebuah variable dengan 'del'
+"""
+# contoh
+variable = 10
+del variable
+
+if "variable" in globals():
+    print('ada variabel dengan nama variabel')
+else:
+    print('tidak ada variabel dengan nama variabel')
+
+# contoh lain
+arr = [1 , 2 , 3]
+del arr[1]
+print("arr sekarang adalah:", arr) # [1,3], karena 2 telah dihapus
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> if, else, elif <== =============== #
+penjelasan = """"
+'if, else, elif' digunakan untuk percabangan bersyarat atau pengambilan keputusan
+
+Saat kita ingin menjalankan blok pemrograman pada kondisi tertentu, maka menggunakan
+pernyataan 'if'. Jika kita ingin menjalankan blok pemgrograman pada kondisi tertentu yang
+tidak memenuhi kondisi pertama atau cabang kondisi lain, maka menggunakan pernyataan 'elif'
+atau dengan nama lain 'else if'. Dan apabila ingin menjalankan blok permrograman saat
+kondisi-kondisi yang telah ditentukan tidak terpenuhi, maka menggunakan pernyataan 'else'.
+"""
+# contoh
+def if_elif_else_example(number):
+    if number <= 10:
+        print("number is 10 or under 10")
+    elif number > 10 and number <= 20:
+        print("number is in range 11 - 20")
+    else:
+        print("number is above 20")
+
+if_elif_else_example(1) 
+if_elif_else_example(11)
+if_elif_else_example(110)
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
 
 # =============== ==> None <== =============== #
 # =============== ==> End <== =============== #
