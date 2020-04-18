@@ -1,6 +1,7 @@
 # ada beberapa keyword di python 3
 # disini akan menjelaskan pengertian dan contohnya
-
+import keyword
+print("list dari keyword adalah: ","\n", keyword.kwlist, "\n"*4)
 
 # =============== ==> True and False <== =============== #
 
@@ -32,7 +33,7 @@ print("hasil 0 == False adalah:", 0 == False) # True, karena 0 adalah False
 
 
 # =============== ==> End <== =============== #
-print("\n" * 5)
+print("\n" * 3)
 
 
 
@@ -77,14 +78,15 @@ print("hasil print() improper_return_function(10) adalah: ", improper_return_fun
 print("hasil print() improper_return_function(11) adalah: ", improper_return_function(11)) # None, karena a dibagi 2 sisa 1, dan tidak me-return apa-apa a.k.a None
 
 # =============== ==> End <== =============== #
-print("\n" * 5)
+print("\n" * 3)
 
 
 
 
 # =============== ==> and, or, not <== =============== #
+
 penjelasan = """
-'and, or, not' adalah operasi logika dalam python, seperti halnya pada gerbang logika, terdapat &&, ||, !=
+'and, or, not' adalah operasi logika dalam python, seperti halnya pada gerbang logika, terdapat &&, ||, !
 
 1. Logika 'and' akan me-return True atau 1 apabila kedua operand yang dibandingkan adalah True atau 1.
 
@@ -114,7 +116,7 @@ penjelasan = """
 
 2. Logika 'not' atau tidak sama dengan adalah kebalikan dari kebenaran nilai.
 
-1.3 Tabel 'not' atau !=
+1.3 Tabel 'not' atau !
 -------------------------------
 |      A     |      not A     |
 -------------------------------
@@ -130,16 +132,85 @@ print("not False adalah:", not False) # True
 print("not True adalah:", not True) # False
 
 # =============== ==> End <== =============== #
-print("\n" * 5)
+print("\n" * 3)
 
-# =============== ==> None <== =============== #
-# =============== ==> End <== =============== #
 
-# =============== ==> None <== =============== #
-# =============== ==> End <== =============== #
 
-# =============== ==> None <== =============== #
+
+# =============== ==> as <== =============== #
+
+penjelasan = """
+'as' digunakan untuk membuat sebuah alias ketika saat mengimport modul, Itu berarti
+memberikan nama yang berbeda (yang ditentukan pengguna) ke modul saat mengimportnya
+
+Sebagai contoh kita akan mengimpot sebuah modul bernama 'time' lalu kita gunakan
+'as' untuk memberikan nama yang berbeda yaitu waktu. maka akan menjadi seperti ini:
+'import time as waktu'
+"""
+# Contoh
+import time as waktu
+print("waktu sekarang dalam format time-stamp adalah:", waktu.time()) # mendapatkan waktu sekarang dengan format timestamp\
+
+import math as matematika # mengimport math dengan nama matematika
+print("cosinus phi adalah:", matematika.cos(matematika.pi)) # -1.0
+
 # =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> assert <== =============== #
+
+penjelasan = """
+'assert' digunakan untuk tujuan debugging.
+
+Saat memprogram, terkadang kita ingin mengetahui keadaan internal atau memeriksa
+apakah asumsi kita benar. 'assert' membantu kita untuk melakukannya dan menemukan
+bug lebih nyaman. 'assert' diikuti oleh suatu kondisi.
+
+Jika kondisinya benar, maka tidak akan ada yang terjadi. Tapi jika kondisinya salah,
+maka 'AssertionError' akan dinaikkan.
+"""
+# contoh
+a = 10
+assert a > 5 # tidak akan terjadi apa2
+# assert a < 10, "nilai a lebih kecil dari 10" # <== akan error AssertionError dengan message "nilai a lebih kecil dari 10"
+# note: dijadikan komentar agar yang bawah masih jalan, silahkan untuk di uncomment sendiri
+
+# untuk pehaman lebih baik "assert kondisi, pesan" atau "assert condition, message"
+# sama dengan
+# if not a < 10:
+#     raise AssertionError("a sama dengan 10")
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> async, await <== =============== #
+
+penjelasan = """
+'async' dan 'await' adalah keyword yang disediakan oleh library python yaitu asyncio.
+Mereka digunakan untuk menulis kode secara bersamaan/mengeksekusi secara asingkronus
+"""
+print(penjelasan)
+import asyncio
+
+async def main():
+    print("Hello")
+    await asyncio.sleep(1) # menunggu 1 detik sebelum print("world") dijalankan
+    print("World")
+
+loop = asyncio.get_event_loop()
+loop.run_until_complete(main()) # blocking
+# Note: pembahasan selanjutnya akan dijelaskan lebih terperinci di bagian yang terpisah
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
 
 # =============== ==> None <== =============== #
 # =============== ==> End <== =============== #
