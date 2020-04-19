@@ -98,3 +98,6 @@ def double(num):
     return 2*num
 ```
 Docstrings dikaitkan dengan objek sebagai atribut (.__ doc __) mereka.
+
+
+Sumber dan untuk informasi lebih lengkap: [Programiz](https://www.programiz.com/python-programming/statement-indentation-comments)
