@@ -347,8 +347,349 @@ print("\n" * 3)
 
 
 
-# =============== ==> None <== =============== #
+# =============== ==> except, raise, try <== =============== #
+
+penjelasan = """
+'except, raise, try' digunakan dengan 'Exception' dalam python.
+
+'Exception' pada dasarnya adalah error yang menunjukkan ada kesalahan saat
+menjalankan program kita. IOError, ValueError, ZeroDivisionError, ImportError,
+NameError, TypeError, dll. adalah beberapa contoh 'Exception' dalam python.
+try-except blok digunakan untuk 'menangkap' pengecualian/exception di python.
+"""
+# contoh
+
+def pembagian(a, b):
+    try:
+        c = a / b
+        return c
+    except ZeroDivisionError:
+        return "Tidak bisa dibagi dengan 0"
+
+print(pembagian(10,0)) # Tidak bisa dibagi dengan 0
+print(pembagian(10,4)) # 2.5
+
+# kita juga bisa menggunakan raise error:
+def pembagian_20_dengan_pembagi(pembagi):
+    if pembagi == 0:
+        raise ZeroDivisionError('tidak dapat dibagi dengan 0 !')
+    else:
+        return 20 / pembagi
+
+print(pembagian_20_dengan_pembagi(10))
+# print(pembagian_20_dengan_pembagi(0)) # akan ada error ZeroDivisionError
+# boleh dicoba dengan un-commentar
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> finally <== =============== #
+penjelasan = """
+'finally' merupakan bagian dari try-except, dimana finally biasanya digunakan
+untuk menutup resource atau aliran file (seperti open(), kemudian di .close())
+
+'finally' akan dijalankan apapun yang terjadi, meskipun ada 'Exception' yang
+tidak tertangani.
+Penjelasan mengenai handling error atau exception akan dijelaskan pada bagian khusus.
+"""
+# contoh
+def finally_example():
+    try:
+        f = open('keyword.txt', encoding='utf-8')
+        # perfome file operation
+    finally:
+        f.close()
+
+finally_example()
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> for <== =============== #
+penjelasan = """
+for digunakan untuk perulangan, umumnya digunakan ketika kita tahu berapa
+kali kita ingin mengulang. (sebagai conton menggunakan for x in range())
+
+Didalam python kita juga bisa melakukan perulangan untuk semua jenis urutan
+seperti daftar(list) ataupun string.
+"""
+# contoh
+for x in range(0,3):
+    print("x bernilai : ", x)
+
+# atau
+for x in ['Ana', 'Bob', 'Carlsen', 'David', 'Evelyn', 'Fabiano', 'Galardia']:
+    print(x, end=" ")
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> from, import <== =============== #
+penjelasan = """
+'import' digunakan ketika kita ingin mengimport modul, library, ataupun mengakses
+file python lain baik di derektori maupun diluar direktori. sekarang apa fungsi dari
+from ... import ... ? 
+Seperti yang sudah kita tahu, untuk mengakses suatu modul kita perlu meng-importnya,
+sebagai contoh kita ingin menggunakan fungsi cos() ataupun pi. Maka yang dilakukan
+adalah import math, kemudian menggunakan math.cos() dan math.pi.
+Tetapi apabila kita hanya ingin mengimport fungsi tertentu saja (semisal hanya cos() saja),
+maka yang harus dilakukan adalah 'from math import cos'. Jadi hanya fungsi cos() yang di-
+import, dan untuk menggunakannya hanya tinggal memangging fungsinya yaitu cos(), bukan math.cos()
+"""
+# contoh
+import math # mengimport math
+from math import pi # menggunakan from untuk mengimport pi saka
+nilai_cos_phi = math.cos(pi) # pi tanpa math.pi
+print("nilai cos phi adalah: {}".format(nilai_cos_phi))
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> global <== =============== #
+penjelasan = """
+'global' digunakan untuk menyatakan bahwa variabel didalam fungsi adalah global
+(diluar fungsi). Jika kita perlu membaca nilai variabel global, kita tidak perlu
+mendefinisikannya sebagai global (ini perlu dipahami)
+
+ini penting: Jika kita perlu untuk memodifikasi nilai variabel global didalam suatu
+fungsi, maka kita perlu mendeklarasikannya dengan global. Kalau tidak, variabel lokal
+dengan nama yang sama dengan variabel global akan terdeklarasi sebagai variabel baru
+di lokal.
+"""
+# contoh
+var_global = 10 # nilai variabel awal : 10
+def read_var():
+    print("nilai var_global adalah :", var_global)
+
+def write1(): # fungsi mengubah nilai var_global
+    global var_global # mengakses variabel global
+    var_global = 20
+
+def write2(): # fungsi mengubah nilai var_global tanpa mengakses variabel global
+    var_global = 15
+
+read_var() # nilai awal = 10
+write1() # mengganti nilai jadi 20
+read_var() # nilai = 20
+write2() # mengganti nilai jadi 15, tetapi karena tanpa keyword global, jadi mendeklarasikan variabel baru
+read_var() # nilai tetap = 20
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> in <== =============== #
+penjelasan = """
+'in' digunakan untuk menguji apakah suatu sequence (list, tuple, string)
+berisi nilai tertentu. Akan mereturn True apabila ada, dan False apabila tidak ada.
+
+Penggunakan selanjutnya adalah untuk melintasi urutan dalam sebuah for-loop
+"""
+# contoh
+sebuat_list = ['Arda', 'Baladewa', 'Cruax', 'Devidena', 'Efrat', 'Flux']
+print("apakah 'Raya' in sebuah_list? :", 'Raya' in sebuat_list) # False
+print("apakah 'Arda' in sebuah_list? :", 'Arda' in sebuat_list) # True
+
+# atau bisa digunakan untuk percabangan
+if 'Arda' in sebuat_list:
+    print('Ada pada list')
+else:
+    print('Tidak ada pada list')
+
+# untuk for-loop
+for x in sebuat_list:
+    print(x, end=", ")
+
+# =============== ==> End <== =============== #
+print("\n" * 30)
+
+
+
+
+# =============== ==> is <== =============== #
+penjelasan = """
+'is' digunakan untuk menguji identitas objek. Sementara operator == digunakan untuk
+menguji apakah dua variabel bernilai sama atau tidak. 'is' digunakan untuk menguji
+apakah dua variabel merujuk ke objek yang sama.
+me-return True apabila objek identik, dan False apabila tidak.
+
+*list '[]' dan dictionary kosong '{}' sama dengan dictionary atau list kosong lainnya. Tetapi mereka
+bukan objek yang identik, karena mereka berada secara terpisah didalam memory (bukan
+pada memory yang sama). Ini karena list dan dictionary dapat berubah nilai(mutable)
+
+*string dan tuple tidak dapat dirubah(immutable). Oleh karena itu, dua string atau dua tuple yang bernilai sama
+masing-masing dari mereka identik satu sama lain. Karena mereka merujuk ke memory yang sama.
+"""
+# contoh
+print("True is True? :", True is True)
+print("False is False? :", False is False)
+print("None is None? :", None is None)
+print("{} is {} ? :", {} is {}, ", {} == {} ? :", {} == {})
+print("[] is [] ? :", [] is [], ", [] == [] ? :", [] == [])
+print("() is () ? :", () is (), ", () == () ? :", () == ())
+print("empty-string is empty-string ? :", '' is '', ", empty-string == empty-string  ? :", '' == '')
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> lambda <== =============== #
+penjelasan = """
+'lambda' merupakan sebuah fungsi anonim atau sering disebut 'function expression'
+yang tidak mengandung pernyataan 'return'. lambda merupakan fungsi sebaris
+yang sudah terdiri dari sebuah expression yang divaluasi dan dikembalikan. (tidak perlu
+di return karena sudah direturn)
+lambda terdiri dari list parameter dan expression, atau:
+var = lambda parameter_list: expression
+"""
+# contoh
+lambda_example = lambda x : x + 1
+for i in range(0,4):
+    print(f"i ke-{i}, nilai lambda={lambda_example(i)}",end=", " )
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> nonlocal <== =============== #
+penjelasan="""
+penggunaan 'nonlocal' sangat mirip denga 'global'. nonlocal digunakan untuk menyatakan
+bahwa variabel didalam fungsi bersarang (fungsi didalam fungsi) tidak bersifat lokal, artinya
+terletak pada fungsi diluarnya. Jika kita perlu memodifikasi nilai variabel non-lokal, maka
+kita harus mendeklarasikannya dengan 'nonlocal'. Kalau tidak, variabel lokal dengan nama tersebut
+akan terdefinisi didalam fungsinya(fungsi yang didalam fungsi)
+"""
+print("contoh dengan nonlokal")
+def outer_function():
+    m = 10
+    print(f"Outer function before: {m}")
+    def inner_function():
+        nonlocal m
+        m = 15
+        print(f"Inner function: {m}")
+    inner_function()
+    print(f"Outer function after: {m}")
+
+outer_function()
+print("\n")
+
+print("contoh tanpa nonlokal")
+def _outer_function():
+    m = 10
+    print(f"Outer function before: {m}")
+    def inner_function():
+        m = 15
+        print(f"Inner function: {m}")
+    inner_function()
+    print(f"Outer function after: {m}")
+
+_outer_function()
+# silahkan untuk berspekulasi sendiri kenapa bisa terjadi
+# note: nonlokal bukan berarti mengambil variabel global ya
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> pass <== =============== #
+penjelasan = """
+'pass' adalah null statement di python. Tidak ada yang terjadi ketika itu dieksekusi.
+'pass' digunakan sebagai placeholder.
+
+Sebagai contoh kita ingin membuat sebuah fungsi tanpa mengeksekusi apa-apa. apila hanya
+dibuat seperti ini:
+
+def fungsi(args):
+
+maka akan terjadi 'IndentationError'. sebagai gantinya, menggunakan pass untuk mencegah
+adanya error tersebut. Contohnya seperti berikut:
+
+def fungsi(args):
+    pass
+
+Kita juga bisa menggunakan hal yang sama untuk sebuah 'class'
+
+class Kelas:
+    pass
+
+"""
+print(penjelasan)
+# contoh
+def fungsi_contoh():
+    pass
+
+fungsi_contoh() # tidak akan mengeksekusi apa-apa
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> return <== =============== #
+penjelasan="""
+'return' statement digunakan didalam fungsi untuk keluar dari fungsi dan mengembalikan
+nilai dari fungsi tersebut. Apabila tidak menggunakan return secara eksplisit, maka fungsi
+akan mengembalikan nilai 'None' secara otomatis.
+"""
+# contoh
+def func_return():
+    a = 11
+    return a
+
+def func_no_return():
+    a = 15
+
+print("fungsi dengan return: ", func_return())
+print("fungsi tanpa return: ", func_no_return())
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> while <== =============== #
+penjelasan="""
+'while' digunakan untuk for-loop.
+statement didalam while akan terus dijalankan secara berulang sampai kondisi untuk
+'while' sama dengan False atau menggunakan 'break' statement.
+note: 0 sama dengan False
+"""
+# contoh
+i = 5
+while(i):
+    print("i adalah:", i)
+    i -= 1
+
+# =============== ==> End <== =============== #
+print("\n" * 3)
+
+
+
+
+# =============== ==> with <== =============== #
 # =============== ==> End <== =============== #
 
-# =============== ==> None <== =============== #
+# =============== ==> yield <== =============== #
 # =============== ==> End <== =============== #
