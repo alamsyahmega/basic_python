@@ -147,7 +147,7 @@ __Pada Tabel di bawah__: let `x = 10`(0000 1010 pada biner) dan `y = 4`(0000 010
 | Operator | Arti | Contoh |
 | -------- | ---- | ------ |
 | `&` | Bitwise AND | `x & y = 0 (0000 0000)` |
-| `|` | Bitwise OR | `x | y = 14 (0000 1110)` |
+| `\|` | Bitwise OR | `x \| y = 14 (0000 1110)` |
 | `~` | Bitwise NOT | `~x = -11 (1111 0101)` |
 | `^` | Bitwise XOR | `x ^ y = 14 (0000 1110)` |
 | `>>` | Bitwise right shift | `x >> 2 = 2 (0000 0010)` |
@@ -174,7 +174,7 @@ Ada beberapa operator gabungan di Python seperti `a += 5` yang menambahkan varia
 | `//=` | `x //= 5` | `x = x // 5` |
 | `**=` | `x **= 5` | `x = x ** 5` |
 | `&=` | `x &= 5` | `x = x & 5` |
-| `|=` | `x |= 5` | `x = x | 5` |
+| `\|=` | `x \|= 5` | `x = x \| 5` |
 | `^=` | `x ^= 5` | `x = x ^ 5` |
 | `>>=` | `x >>= 5` | `x = x >> 5` |
 | `<<=` | `x <<= 5` | `x = x << 5` |
